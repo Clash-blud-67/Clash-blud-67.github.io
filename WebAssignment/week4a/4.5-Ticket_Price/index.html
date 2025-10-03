@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Calculator</title>
+</head>
+<body>
+    <h1>Ticket Calculator</h1>
+    
+    <label for="ageInput">Enter Age:</label>
+    <input type="number" id="ageInput" min="0">
+    <br>
+    <br>
+    <label>Select Gender:</label>
+    <br>
+    <input type="radio" name="gender" value="male" id="male"> 
+    <label for="male">Male</label>
+    <br>
+    <input type="radio" name="gender" value="female" id="female"> 
+    <label for="female">Female</label>
+    <br>
+    <br>
+    <button onclick="calcPrice()">Buy Ticket</button>
+    
+    <h2 id="output"></h2>
+
+<script>
+function calcPrice() {
+    const age = Number(document.getElementById("ageInput").value);
+    const genderElement = document.querySelector('input[name="gender"]:checked');
+
+    const gender = genderElement.value;
+    let price;
+
+    if (age > 18) {
+        price = 21.00;
+    } else if (age >= 12) {
+        price = 14.00;
+    } else {
+        price = 7.00;
+    }
+
+    if (gender === "female") {
+        price = price * 0.75;
+    }
+
+    document.getElementById("output").innerHTML = 
+        `Ticket Price: $${price.toFixed(2)}`;
+}
+</script>
+</body>
+</html>
