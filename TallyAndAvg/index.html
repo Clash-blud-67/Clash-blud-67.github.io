@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Random Number Averager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #13a0d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #006eff;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Random Number Average</h1>
+    <button onclick="generateNumbers()">Generate Numbers</button>
+    <p id="results"></p>
+
+    <script>
+        function generateNumbers() {
+            let total = 0;
+            let numbers = [];
+            let count = 0;
+
+            while (count < 10) {
+                let num = Math.floor(Math.random() * 10) + 1;
+                numbers.push(num);
+                total += num;
+                count++;
+            }
+
+            let average = total / 10;
+
+            document.getElementById("results").innerHTML = `
+                Generated Numbers: ${numbers.join(", ")}<br>
+                Total: ${total}<br>
+                Average: ${average.toFixed(2)}
+            `;
+        }
+    </script>
+
+</body>
+</html>
